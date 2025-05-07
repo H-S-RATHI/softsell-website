@@ -6,7 +6,7 @@ import Testimonials from "../components/testimonials"
 import ContactForm from "../components/contact-form"
 import ChatWidget from "../components/chat-widget"
 import Navbar from "../components/navbar"
-import Footer from "../components/Footer"
+import Footer from "../components/footer"
 
 export default function Home() {
   return (
