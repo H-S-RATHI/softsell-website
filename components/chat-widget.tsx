@@ -120,9 +120,9 @@ export default function ChatWidget() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="fixed bottom-24 right-6 z-50 w-full max-w-md"
+            className="fixed bottom-24 right-6 z-50 w-full max-w-md max-h-[80vh]"
           >
-            <Card className="overflow-hidden shadow-xl border-2 border-teal-500/20">
+            <Card className="overflow-hidden shadow-xl border-2 border-teal-500/20 flex flex-col max-h-[80vh]">
               {/* Header */}
               <div className="bg-gradient-to-r from-teal-500 to-emerald-500 p-4 text-white flex items-center">
                 <Bot size={24} className="mr-2" />
@@ -133,7 +133,7 @@ export default function ChatWidget() {
               </div>
 
               {/* Messages */}
-              <div className="h-96 overflow-y-auto p-4 bg-muted/30">
+              <div className="max-h-[50vh] h-[350px] overflow-y-auto p-4 bg-muted/30">
                 {messages.map((message, index) => (
                   <div key={index} className={`mb-4 flex ${message.isUser ? "justify-end" : "justify-start"}`}>
                     <div
