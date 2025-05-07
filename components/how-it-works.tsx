@@ -1,5 +1,5 @@
 "use client"
-
+import React from "react"
 import { motion } from "framer-motion"
 import { Upload, DollarSign, CreditCard } from "lucide-react"
 
