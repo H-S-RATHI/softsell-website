@@ -40,11 +40,16 @@ export default function Hero() {
             className="relative"
           >
             <div className="relative z-10 bg-gradient-to-br from-teal-500 to-emerald-500 rounded-2xl p-1">
-              <div className="bg-background rounded-xl overflow-hidden">
+              <div className="bg-background rounded-xl overflow-hidden shadow-xl">
                 <img
-                  src="/placeholder.svg?height=600&width=800"
+                  src="/dashboard-image.svg"
                   alt="Software license management dashboard"
-                  className="w-full h-auto"
+                  className="w-full h-auto dark:hidden"
+                />
+                <img
+                  src="/dashboard-image-dark.svg"
+                  alt="Software license management dashboard"
+                  className="w-full h-auto hidden dark:block"
                 />
               </div>
             </div>

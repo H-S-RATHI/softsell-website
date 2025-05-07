@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .bg { fill: #0f172a; }
+    .header { fill: #020617; }
+    .sidebar { fill: #1e293b; }
+    .card { fill: #1e293b; stroke: #334155; stroke-width: 1; }
+    .accent { fill: #14b8a6; }
+    .accent2 { fill: #10b981; }
+    .text { fill: #f8fafc; }
+    .text-light { fill: #94a3b8; }
+    .text-dark { fill: #f8fafc; }
+    .text-dark-muted { fill: #cbd5e1; }
+    .chart-bar { fill: #14b8a6; opacity: 0.8; }
+    .chart-bar2 { fill: #10b981; opacity: 0.8; }
+    .chart-line { fill: none; stroke: #14b8a6; stroke-width: 2; }
+    .chart-dot { fill: #14b8a6; }
+    .chart-grid { stroke: #334155; stroke-width: 1; }
+    .license-item { fill: #334155; stroke: #475569; stroke-width: 1; }
+    .license-icon { fill: #14b8a6; }
+    .license-icon-bg { fill: #064e3b; }
+    .status-active { fill: #22c55e; }
+    .status-pending { fill: #eab308; }
+    .status-expired { fill: #ef4444; }
+    .btn { fill: #14b8a6; }
+    .btn-outline { fill: none; stroke: #14b8a6; stroke-width: 1; }
+  </style>
+
+  <!-- Background -->
+  <rect width="800" height="600" class="bg" />
+
+  <!-- Header -->
+  <rect width="800" height="60" class="header" />
+  <text x="30" y="38" font-family="Arial" font-size="20" font-weight="bold" class="text-dark">SoftSell Dashboard</text>
+  
+  <!-- Search bar -->
+  <rect x="300" y="15" width="250" height="30" rx="6" fill="#1e293b" />
+  <text x="320" y="35" font-family="Arial" font-size="12" class="text-dark-muted">Search licenses, companies...</text>
+  
+  <!-- User profile -->
+  <circle cx="740" cy="30" r="20" fill="#14b8a6" />
+  <text x="740" y="35" font-family="Arial" font-size="14" font-weight="bold" class="text-dark" text-anchor="middle">JS</text>
+
+  <!-- Sidebar -->
+  <rect width="200" height="540" y="60" class="sidebar" />
+  
+  <!-- Menu items -->
+  <rect x="20" y="100" width="160" height="40" rx="6" class="accent" opacity="0.2" />
+  <text x="55" y="125" font-family="Arial" font-size="14" font-weight="bold" class="text-dark">Dashboard</text>
+  <circle cx="35" cy="120" r="8" class="accent" />
+  
+  <text x="55" y="175" font-family="Arial" font-size="14" class="text-dark-muted">Licenses</text>
+  <circle cx="35" cy="170" r="8" class="text-dark-muted" />
+  
+  <text x="55" y="225" font-family="Arial" font-size="14" class="text-dark-muted">Marketplace</text>
+  <circle cx="35" cy="220" r="8" class="text-dark-muted" />
+  
+  <text x="55" y="275" font-family="Arial" font-size="14" class="text-dark-muted">Transactions</text>
+  <circle cx="35" cy="270" r="8" class="text-dark-muted" />
+  
+  <text x="55" y="325" font-family="Arial" font-size="14" class="text-dark-muted">Analytics</text>
+  <circle cx="35" cy="320" r="8" class="text-dark-muted" />
+  
+  <text x="55" y="375" font-family="Arial" font-size="14" class="text-dark-muted">Settings</text>
+  <circle cx="35" cy="370" r="8" class="text-dark-muted" />
+  
+  <!-- Main content -->
+  <text x="230" y="100" font-family="Arial" font-size="24" font-weight="bold" class="text">License Overview</text>
+  <text x="230" y="125" font-family="Arial" font-size="14" class="text-light">Manage and monitor your software licenses</text>
+  
+  <!-- Stats cards -->
+  <rect x="230" y="150" width="170" height="100" rx="8" class="card" />
+  <text x="250" y="180" font-family="Arial" font-size="14" class="text-light">Total Licenses</text>
+  <text x="250" y="215" font-family="Arial" font-size="28" font-weight="bold" class="text">42</text>
+  <text x="290" y="215" font-family="Arial" font-size="14" class="text-light">licenses</text>
+  <circle cx="370" cy="190" r="25" class="accent" opacity="0.2" />
+  <text x="370" y="195" font-family="Arial" font-size="14" font-weight="bold" class="accent" text-anchor="middle">+12%</text>
+  
+  <rect x="420" y="150" width="170" height="100" rx="8" class="card" />
+  <text x="440" y="180" font-family="Arial" font-size="14" class="text-light">Active Value</text>
+  <text x="440" y="215" font-family="Arial" font-size="28" font-weight="bold" class="text">$24,500</text>
+  <circle cx="560" cy="190" r="25" class="accent2" opacity="0.2" />
+  <text x="560" y="195" font-family="Arial" font-size="14" font-weight="bold" class="accent2" text-anchor="middle">+8%</text>
+  
+  <rect x="610" y="150" width="170" height="100" rx="8" class="card" />
+  <text x="630" y="180" font-family="Arial" font-size="14" class="text-light">Sold This Month</text>
+  <text x="630" y="215" font-family="Arial" font-size="28" font-weight="bold" class="text">7</text>
+  <text x="655" y="215" font-family="Arial" font-size="14" class="text-light">licenses</text>
+  <circle cx="750" cy="190" r="25" class="accent" opacity="0.2" />
+  <text x="750" y="195" font-family="Arial" font-size="14" font-weight="bold" class="accent" text-anchor="middle">+5%</text>
+  
+  <!-- Chart -->
+  <rect x="230" y="270" width="350" height="220" rx="8" class="card" />
+  <text x="250" y="300" font-family="Arial" font-size="16" font-weight="bold" class="text">License Value Trends</text>
+  <text x="250" y="320" font-family="Arial" font-size="12" class="text-light">Last 6 months</text>
+  
+  <!-- Chart grid -->
+  <line x1="250" y1="450" x2="550" y2="450" class="chart-grid" />
+  <line x1="250" y1="400" x2="550" y2="400" class="chart-grid" />
+  <line x1="250" y1="350" x2="550" y2="350" class="chart-grid" />
+  
+  <!-- X-axis labels -->
+  <text x="270" y="470" font-family="Arial" font-size="10" class="text-light" text-anchor="middle">Jan</text>
+  <text x="320" y="470" font-family="Arial" font-size="10" class="text-light" text-anchor="middle">Feb</text>
+  <text x="370" y="470" font-family="Arial" font-size="10" class="text-light" text-anchor="middle">Mar</text>
+  <text x="420" y="470" font-family="Arial" font-size="10" class="text-light" text-anchor="middle">Apr</text>
+  <text x="470" y="470" font-family="Arial" font-size="10" class="text-light" text-anchor="middle">May</text>
+  <text x="520" y="470" font-family="Arial" font-size="10" class="text-light" text-anchor="middle">Jun</text>
+  
+  <!-- Y-axis labels -->
+  <text x="240" y="450" font-family="Arial" font-size="10" class="text-light" text-anchor="end">0</text>
+  <text x="240" y="400" font-family="Arial" font-size="10" class="text-light" text-anchor="end">10k</text>
+  <text x="240" y="350" font-family="Arial" font-size="10" class="text-light" text-anchor="end">20k</text>
+  
+  <!-- Chart bars -->
+  <rect x="260" y="410" width="20" height="40" rx="4" class="chart-bar" />
+  <rect x="310" y="390" width="20" height="60" rx="4" class="chart-bar" />
+  <rect x="360" y="370" width="20" height="80" rx="4" class="chart-bar" />
+  <rect x="410" y="380" width="20" height="70" rx="4" class="chart-bar" />
+  <rect x="460" y="360" width="20" height="90" rx="4" class="chart-bar" />
+  <rect x="510" y="350" width="20" height="100" rx="4" class="chart-bar" />
+  
+  <!-- Chart line -->
+  <polyline points="270,420 320,400 370,380 420,390 470,370 520,360" class="chart-line" />
+  <circle cx="270" cy="420" r="4" class="chart-dot" />
+  <circle cx="320" cy="400" r="4" class="chart-dot" />
+  <circle cx="370" cy="380" r="4" class="chart-dot" />
+  <circle cx="420" cy="390" r="4" class="chart-dot" />
+  <circle cx="470" cy="370" r="4" class="chart-dot" />
+  <circle cx="520" cy="360" r="4" class="chart-dot" />
+  
+  <!-- License list -->
+  <rect x="600" y="270" width="180" height="220" rx="8" class="card" />
+  <text x="620" y="300" font-family="Arial" font-size="16" font-weight="bold" class="text">Recent Licenses</text>
+  
+  <!-- License items -->
+  <rect x="610" y="320" width="160" height="40" rx="4" class="license-item" />
+  <circle cx="630" cy="340" r="12" class="license-icon-bg" />
+  <text x="630" y="345" font-family="Arial" font-size="12" font-weight="bold" class="license-icon" text-anchor="middle">A</text>
+  <text x="655" y="335" font-family="Arial" font-size="12" font-weight="bold" class="text">Adobe CC</text>
+  <text x="655" y="350" font-family="Arial" font-size="10" class="text-light">Enterprise</text>
+  <circle cx="750" cy="340" r="5" class="status-active" />
+  
+  <rect x="610" y="370" width="160" height="40" rx="4" class="license-item" />
+  <circle cx="630" cy="390" r="12" class="license-icon-bg" />
+  <text x="630" y="395" font-family="Arial" font-size="12" font-weight="bold" class="license-icon" text-anchor="middle">M</text>
+  <text x="655" y="385" font-family="Arial" font-size="12" font-weight="bold" class="text">Microsoft 365</text>
+  <text x="655" y="400" font-family="Arial" font-size="10" class="text-light">Business</text>
+  <circle cx="750" cy="390" r="5" class="status-pending" />
+  
+  <rect x="610" y="420" width="160" height="40" rx="4" class="license-item" />
+  <circle cx="630" cy="440" r="12" class="license-icon-bg" />
+  <text x="630" y="445" font-family="Arial" font-size="12" font-weight="bold" class="license-icon" text-anchor="middle">A</text>
+  <text x="655" y="435" font-family="Arial" font-size="12" font-weight="bold" class="text">Autodesk</text>
+  <text x="655" y="450" font-family="Arial" font-size="10" class="text-light">Premium</text>
+  <circle cx="750" cy="440" r="5" class="status-active" />
+  
+  <!-- Action buttons -->
+  <rect x="230" y="510" width="170" height="40" rx="6" class="btn" />
+  <text x="315" y="535" font-family="Arial" font-size="14" font-weight="bold" class="text-dark" text-anchor="middle">Add New License</text>
+  
+  <rect x="420" y="510" width="170" height="40" rx="6" class="btn-outline" />
+  <text x="505" y="535" font-family="Arial" font-size="14" font-weight="bold" class="accent" text-anchor="middle">Sell Licenses</text>
+  
+  <rect x="610" y="510" width="170" height="40" rx="6" class="btn-outline" />
+  <text x="695" y="535" font-family="Arial" font-size="14" font-weight="bold" class="accent" text-anchor="middle">View All Licenses</text>
+</svg>
