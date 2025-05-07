@@ -9,7 +9,7 @@ A responsive, single-page marketing website for a fictional software resale star
 - **Interactive Elements**: Animations using Framer Motion for enhanced user experience
 - **Dark/Light Mode**: Theme toggle with system preference detection
 - **Form Validation**: Client-side validation for the contact form
-- **AI Chat Widget**: Mock implementation of a Gemini-powered chat assistant
+- **AI Chat Widget**: Gemini-powered chat assistant with fallback to mock responses
 
 ### Sections
 
@@ -49,10 +49,24 @@ A responsive, single-page marketing website for a fictional software resale star
 
 Total: ~9 hours
 
+## Setup
+
+### Gemini API Integration
+
+To enable the AI chat widget with Gemini:
+
+1. Get a Gemini API key from [Google AI Studio](https://ai.google.dev/)
+2. Add your API key to the `.env.local` file:
+   ```
+   NEXT_PUBLIC_GEMINI_API_KEY=your_actual_api_key_here
+   ```
+3. Restart the development server
+
+If no API key is provided, the chat widget will fall back to predefined responses for common questions.
+
 ## Future Improvements
 
 - Add actual backend integration for the contact form
-- Implement real Gemini API integration for the chat widget
 - Add more detailed animations and transitions
 - Expand the site with additional pages (pricing, about, blog)
 - Implement analytics tracking

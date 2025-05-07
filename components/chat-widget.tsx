@@ -6,11 +6,12 @@ import { Input } from "./ui/input"
 import { Card } from "./ui/card"
 import { MessageCircle, X, Send, Bot } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
+import { getGeminiResponse } from "../lib/gemini-api"
 
-// This would normally use the Gemini API, but for this demo we'll use a simple mock
-const mockGeminiResponse = async (message: string) => {
+// This function handles both mock responses and API calls for unknown questions
+const getAIResponse = async (message: string) => {
   // Simulate API delay
-  await new Promise((resolve) => setTimeout(resolve, 1000))
+  await new Promise((resolve) => setTimeout(resolve, 500))
 
   const responses: Record<string, string> = {
     "how do i sell my license":
@@ -25,19 +26,31 @@ const mockGeminiResponse = async (message: string) => {
       "Our AI-powered valuation system analyzes current market rates, demand trends, and remaining license validity to offer you the best possible price for your software licenses.",
   }
 
-  // Default response for unknown questions
-  let response =
-    "I don't have specific information about that. Please contact our support team for more details or ask me about how to sell licenses, payment timelines, or supported license types."
-
   // Check if the message contains any of our keywords
   for (const [keyword, answer] of Object.entries(responses)) {
     if (message.toLowerCase().includes(keyword)) {
-      response = answer
-      break
+      return answer;
     }
   }
 
-  return response
+  // If no matching response found, call the Gemini API
+  try {
+    // Replace 'YOUR_API_KEY' with your actual API key or use environment variable
+    // In production, you should use environment variables for API keys
+    const apiKey = process.env.NEXT_PUBLIC_GEMINI_API_KEY || 'YOUR_API_KEY';
+    
+    // Only call the API if we have a valid API key
+    if (apiKey && apiKey !== 'YOUR_API_KEY') {
+      const apiResponse = await getGeminiResponse(message, apiKey);
+      return apiResponse;
+    } else {
+      console.warn('No valid API key found for Gemini API');
+      return "I don't have specific information about that. Please contact our support team for more details or ask me about how to sell licenses, payment timelines, or supported license types.";
+    }
+  } catch (error) {
+    console.error('Error getting AI response:', error);
+    return "I'm sorry, I encountered an error while processing your question. Please try again later or contact our support team for assistance.";
+  }
 }
 
 export default function ChatWidget() {
@@ -77,8 +90,8 @@ export default function ChatWidget() {
     setIsLoading(true)
 
     try {
-      // Get AI response from mock function
-      const response = await mockGeminiResponse(userMessage)
+      // Get AI response from our enhanced function
+      const response = await getAIResponse(userMessage)
       setMessages((prev) => [...prev, { text: response, isUser: false }])
     } catch (error) {
       console.error("Error getting response:", error)

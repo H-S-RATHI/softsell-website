@@ -56,8 +56,6 @@ export async function getGeminiResponse(message: string, apiKey: string): Promis
 
     const data = await response.json();
     
-    // Extract the response text from the Gemini API response
-    console.log('Gemini API response:', JSON.stringify(data, null, 2));
     
     if (
       data.candidates &&
