@@ -6,15 +6,44 @@ import { Input } from "./ui/input"
 import { Card } from "./ui/card"
 import { MessageCircle, X, Send, Bot } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
-import { getGeminiResponse } from "../lib/gemini-api"
 
-// Gemini API key
-const GEMINI_API_KEY = "AIzaSyDXJOcVxKl6Exl6jGvk16pDecaEw4bhPck"
+// This would normally use the Gemini API, but for this demo we'll use a simple mock
+const mockGeminiResponse = async (message: string) => {
+  // Simulate API delay
+  await new Promise((resolve) => setTimeout(resolve, 1000))
+
+  const responses: Record<string, string> = {
+    "how do i sell my license":
+      'To sell your license, simply click the "Sell My Licenses" button at the top of the page and follow the 3-step process: upload your license details, review our valuation, and accept payment.',
+    "what types of licenses do you buy":
+      "We purchase a wide range of software licenses including enterprise software, cloud subscriptions, productivity suites, design tools, development environments, and more. If you're unsure, just ask us!",
+    "how long does payment take":
+      "Once you accept our valuation offer, you'll receive payment within 48 hours via your preferred payment method (bank transfer, PayPal, or crypto).",
+    "is my data secure":
+      "We use bank-level encryption and security protocols to protect all your data. We're also compliant with GDPR, CCPA, and other privacy regulations.",
+    "how do you determine value":
+      "Our AI-powered valuation system analyzes current market rates, demand trends, and remaining license validity to offer you the best possible price for your software licenses.",
+  }
+
+  // Default response for unknown questions
+  let response =
+    "I don't have specific information about that. Please contact our support team for more details or ask me about how to sell licenses, payment timelines, or supported license types."
+
+  // Check if the message contains any of our keywords
+  for (const [keyword, answer] of Object.entries(responses)) {
+    if (message.toLowerCase().includes(keyword)) {
+      response = answer
+      break
+    }
+  }
+
+  return response
+}
 
 export default function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false)
   const [messages, setMessages] = useState<{ text: string; isUser: boolean }[]>([
-    { text: "Hi there! I'm powered by Google's Gemini AI. How can I help you with selling your software licenses today?", isUser: false },
+    { text: "Hi there! How can I help you with selling your software licenses today?", isUser: false },
   ])
   const [inputValue, setInputValue] = useState("")
   const [isLoading, setIsLoading] = useState(false)
@@ -48,15 +77,15 @@ export default function ChatWidget() {
     setIsLoading(true)
 
     try {
-      // Get AI response from Gemini API
-      const response = await getGeminiResponse(userMessage, GEMINI_API_KEY)
+      // Get AI response from mock function
+      const response = await mockGeminiResponse(userMessage)
       setMessages((prev) => [...prev, { text: response, isUser: false }])
     } catch (error) {
-      console.error("Error getting response from Gemini API:", error)
+      console.error("Error getting response:", error)
       setMessages((prev) => [
         ...prev,
         {
-          text: "Sorry, I encountered an error connecting to the AI. Please try again later.",
+          text: "Sorry, I encountered an error. Please try again later.",
           isUser: false,
         },
       ])
@@ -93,18 +122,18 @@ export default function ChatWidget() {
             transition={{ duration: 0.2 }}
             className="fixed bottom-24 right-6 z-50 w-full max-w-md max-h-[80vh]"
           >
-            <Card className="overflow-hidden shadow-xl border-2 border-teal-500/20 flex flex-col max-h-[80vh]">
+            <Card className="overflow-hidden shadow-xl border-2 border-teal-500/20 flex flex-col max-h-[81vh]">
               {/* Header */}
               <div className="bg-gradient-to-r from-teal-500 to-emerald-500 p-4 text-white flex items-center">
                 <Bot size={24} className="mr-2" />
                 <div>
                   <h3 className="font-semibold">SoftSell Assistant</h3>
-                  <p className="text-xs opacity-80">Powered by Google's Gemini AI</p>
+                  <p className="text-xs opacity-80">Powered by AI</p>
                 </div>
               </div>
 
               {/* Messages */}
-              <div className="max-h-[50vh] h-[350px] overflow-y-auto p-4 bg-muted/30">
+              <div className="max-h-[90vh] h-[450px] overflow-y-auto p-4 bg-muted/30">
                 {messages.map((message, index) => (
                   <div key={index} className={`mb-4 flex ${message.isUser ? "justify-end" : "justify-start"}`}>
                     <div
