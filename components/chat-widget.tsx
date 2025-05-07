@@ -96,7 +96,10 @@ export default function ChatWidget() {
 
   const handleExampleClick = (question: string) => {
     setInputValue(question)
-    handleSend()
+    // We need to use setTimeout to ensure the inputValue is updated before handleSend is called
+    setTimeout(() => {
+      handleSend()
+    }, 0)
   }
 
   return (

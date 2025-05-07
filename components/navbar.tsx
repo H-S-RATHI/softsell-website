@@ -6,10 +6,12 @@ import Link from "next/link"
 import { Button } from "./ui/button"
 import { ModeToggle } from "./mode-toggle"
 import { Menu, X } from "lucide-react"
+import SellLicensesDialog from "./sell-licenses-dialog"
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isDialogOpen, setIsDialogOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,8 +45,15 @@ export default function Navbar() {
           <Link href="#testimonials" className="text-foreground/80 hover:text-foreground transition-colors">
             Testimonials
           </Link>
+          <Button 
+            variant="default" 
+            className="bg-gradient-to-r from-teal-500 to-emerald-500 hover:from-teal-600 hover:to-emerald-600 text-white"
+            onClick={() => setIsDialogOpen(true)}
+          >
+            Sell My Licenses
+          </Button>
           <Link href="#contact">
-            <Button variant="default">Get Started</Button>
+            <Button variant="outline">Get Started</Button>
           </Link>
           <ModeToggle />
         </nav>
@@ -83,14 +92,27 @@ export default function Navbar() {
             >
               Testimonials
             </Link>
+            <Button 
+              variant="default" 
+              className="w-full bg-gradient-to-r from-teal-500 to-emerald-500"
+              onClick={() => {
+                setIsMenuOpen(false);
+                setIsDialogOpen(true);
+              }}
+            >
+              Sell My Licenses
+            </Button>
             <Link href="#contact" onClick={() => setIsMenuOpen(false)}>
-              <Button variant="default" className="w-full">
+              <Button variant="outline" className="w-full">
                 Get Started
               </Button>
             </Link>
           </div>
         </div>
       )}
+
+      {/* Sell Licenses Dialog */}
+      <SellLicensesDialog isOpen={isDialogOpen} onClose={() => setIsDialogOpen(false)} />
     </header>
   )
 }
