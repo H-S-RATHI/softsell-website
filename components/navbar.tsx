@@ -3,7 +3,7 @@
 import React from "react"
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
+import { Button } from "./ui/button"
 import { ModeToggle } from "./mode-toggle"
 import { Menu, X } from "lucide-react"
 

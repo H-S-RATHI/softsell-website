@@ -1,9 +1,9 @@
 "use client"
-
+import React from "react"
 import { useState, useRef, useEffect } from "react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Card } from "@/components/ui/card"
+import { Button } from "./ui/button"
+import { Input } from "./ui/input"
+import { Card } from "./ui/card"
 import { MessageCircle, X, Send, Bot } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 
